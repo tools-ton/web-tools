@@ -31,7 +31,7 @@ export function AppSidebar() {
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                      <Link href="/web-tools">
+                      <Link href="/">
                         <Home className="mr-2" />
                         <span>Home</span>
                       </Link>
@@ -47,7 +47,7 @@ export function AppSidebar() {
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                      <Link href="/web-tools/address-converter">
+                      <Link href="/address-converter">
                         <FileText className="mr-2" />
                         <span>Address Converter</span>
                       </Link>

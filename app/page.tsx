@@ -18,7 +18,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <Button asChild className="w-full">
-              <Link href="/web-tools/address-converter">Open Tool</Link>
+              <Link href="/address-converter">Open Tool</Link>
             </Button>
           </CardContent>
         </Card>

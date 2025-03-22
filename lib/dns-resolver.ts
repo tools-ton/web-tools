@@ -1,23 +1,15 @@
 export interface DNSResolveResponse {
-  wallet?: {
-    address: string;
-    account: {
-      address: string;
-      name: string;
-      is_scam: boolean;
-      is_wallet: boolean;
-    };
-    is_wallet: boolean;
-    has_method_pubkey: boolean;
-    has_method_seqno: boolean;
-    names: string[];
-  };
-  sites: any[];
+  success: boolean;
+  final_result: string;
+  category?: string | null;
+  collection_address?: string | null;
+  nft_address?: string | null;
+  detail?: string | null;
 }
 
 export async function resolveDNS(domain: string): Promise<string | null> {
   try {
-    const response = await fetch(`https://tonapi.io/v2/dns/${domain}/resolve`, {
+    const response = await fetch(`https://dns.aiexz.top/api/resolve/${domain}`, {
       headers: {
         'accept': 'application/json'
       }
@@ -28,7 +20,7 @@ export async function resolveDNS(domain: string): Promise<string | null> {
     }
 
     const data: DNSResolveResponse = await response.json();
-    return data.wallet?.address || null;
+    return data.success ? data.final_result : null;
   } catch (error) {
     console.error('Error resolving DNS:', error);
     return null;

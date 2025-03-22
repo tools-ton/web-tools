@@ -52,7 +52,7 @@ export default function AddressConverter() {
     }
 
     // Check if it's a DNS name
-    if (value.endsWith('.ton') || value.endsWith('.t.me')) {
+    if (value.endsWith('.ton') || value.endsWith('.t.me') || value.endsWith('.vip') || value.endsWith('.gg')) {
       setIsLoading(true)
       try {
         const resolvedAddress = await resolveDNS(value)
@@ -177,7 +177,7 @@ export default function AddressConverter() {
             </Label>
             <Input
               id="address"
-              placeholder="Enter TON address or DNS name (e.g. example.ton, user.t.me)..."
+              placeholder="Enter TON address or DNS name (e.g. example.ton, user.t.me, example.vip, example.gg)..."
               value={address}
               onChange={(e) => handleAddressChange(e.target.value)}
               className={`${!validation.isValid && address ? "border-red-500 focus-visible:ring-red-500" : ""} ${isLoading ? "opacity-50" : ""}`}
